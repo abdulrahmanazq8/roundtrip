@@ -4,63 +4,88 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Round Trip | الرئيسية</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <meta name="description" content="Round Trip - تخطيط رحلات وحجوزات للعوائل.">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
 <header class="nav">
   <div class="container nav-inner">
     <div class="logo">
-      <div class="mark"></div>
-      <strong>Round Trip</strong>
+      <img src="logo.png" alt="Round Trip" class="logo-img">
     </div>
 
     <nav class="nav-links">
-      <a class="active" href="index.html">الرئيسية</a>
-      <a href="services.html">الخدمات</a>
-      <a href="packages.html">الباقات</a>
-      <a href="contact.html">التواصل</a>
+      <a data-nav href="index.html">الرئيسية</a>
+      <a data-nav href="services.html">الخدمات</a>
+      <a data-nav href="packages.html">الباقات</a>
+      <a data-nav href="contact.html">التواصل</a>
     </nav>
 
     <a class="btn" href="contact.html">اطلب رحلتك</a>
   </div>
 </header>
 
+<section class="hero-banner">
+  <img src="hero.jpg" alt="Round Trip Banner">
+</section>
+
 <main class="container">
   <section class="hero">
     <div class="hero-grid">
 
       <div class="card hero-main">
-        <span class="kicker">✈️ تخطيط رحلات</span>
-        <h1>رحلتك تنبني صح</h1>
-        <p class="lead">نرتب لك رحلة مريحة بدون صداع التخطيط.</p>
+        <span class="kicker">✈️ تخطيط رحلات • فنادق • طيران • سيارات</span>
+        <h1>رحلتك تنبني صح… من أول يوم.</h1>
+        <p class="lead">برنامج واقعي ومريح للعائلة، وتنقلات أقل.</p>
 
         <div class="bullets">
-          <div class="bullet">برنامج واضح</div>
-          <div class="bullet">مناسب للعائلة</div>
-          <div class="bullet">دعم كامل</div>
+          <div class="bullet">✅ يوم الوصول خفيف</div>
+          <div class="bullet">✅ برنامج مرتب</div>
+          <div class="bullet">✅ دعم قبل وأثناء السفر</div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn" href="contact.html">ابدأ طلب الرحلة</a>
+          <a class="btn secondary" href="packages.html">شوف الباقات</a>
         </div>
       </div>
 
-      <div class="card hero-main">
-        <h3>ليش Round Trip؟</h3>
-        <p class="lead">
-          لأننا نشتغل بعقل المسافر ونختصر عليك الوقت والتعب.
-        </p>
-      </div>
+      <aside class="card hero-main">
+        <div class="stat">
+          <strong>تخطيط كامل</strong>
+          <span>من الوصول إلى العودة</span>
+        </div>
+        <div style="height:10px"></div>
+        <div class="stat">
+          <strong>مرونة بالخيارات</strong>
+          <span>حسب ميزانيتك</span>
+        </div>
+        <div style="height:10px"></div>
+        <div class="stat">
+          <strong>مناسب للعائلة</strong>
+          <span>راحة + وقت أقل تنقل</span>
+        </div>
+      </aside>
 
     </div>
   </section>
 
+  <section class="section">
+    <h2>ليش Round Trip؟</h2>
+    <p>نختصر عليك وقت التخطيط ونرتب لك رحلة نظيفة ومضمونة، بدون زحمة تفاصيل.</p>
+  </section>
+
   <footer class="footer">
-    © 2025 Round Trip
+    © <span id="year"></span> Round Trip. جميع الحقوق محفوظة.
   </footer>
 </main>
 
-<a class="wa" id="waLink" href="#">
-  <span class="wa-dot"></span> واتساب
+<a class="wa" id="waLink" href="#" target="_blank">
+  <span class="wa-dot"></span>
+  <span>تواصل واتساب</span>
 </a>
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
