@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Round Trip | التواصل</title>
   <meta name="description" content="تواصل معنا واطلب تخطيط رحلتك عبر النموذج أو واتساب.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
 <header class="nav">
   <div class="container nav-inner">
     <div class="logo">
-      <div class="mark"></div>
-      <div>
-        <div style="font-size:14px;color:var(--muted);font-weight:800;">Round Trip</div>
-        <div style="font-size:16px;font-weight:900;">وكالة سفر</div>
-      </div>
+      <img src="logo.png" alt="Round Trip" class="logo-img">
     </div>
 
     <nav class="nav-links">
@@ -35,56 +31,56 @@
     <h2>طلب رحلة</h2>
     <p>عبّي البيانات، والإرسال يتم مباشرة على واتساب.</p>
 
-    <div class="grid3">
-      <div class="card service" style="grid-column:1/-1">
-        <form id="tripForm">
-          <div class="row">
-            <div>
-              <label>الاسم</label>
-              <input name="name" required>
-            </div>
-            <div>
-              <label>رقم التواصل</label>
-              <input name="phone" required>
-            </div>
-          </div>
+    <div class="card service" style="margin-top:14px;">
+      <form id="tripForm">
 
-          <div class="row">
-            <div>
-              <label>الوجهة</label>
-              <input name="dest" required>
-            </div>
-            <div>
-              <label>عدد الأيام</label>
-              <select name="days" required>
-                <option>5–7</option>
-                <option>8–10</option>
-                <option>11–14</option>
-                <option>15+</option>
-              </select>
-            </div>
+        <div class="row">
+          <div>
+            <label>الاسم</label>
+            <input name="name" required>
           </div>
-
-          <div class="row">
-            <div>
-              <label>عدد البالغين</label>
-              <input type="number" name="adults" value="2">
-            </div>
-            <div>
-              <label>عدد الأطفال</label>
-              <input type="number" name="kids" value="0">
-            </div>
+          <div>
+            <label>رقم التواصل</label>
+            <input name="phone" required>
           </div>
+        </div>
 
-          <label>ملاحظات</label>
-          <textarea name="notes"></textarea>
-
-          <div class="cta">
-            <button class="btn" type="submit">إرسال على واتساب</button>
-            <button class="btn secondary" type="button" id="copyBtn">نسخ النص</button>
+        <div class="row">
+          <div>
+            <label>الوجهة</label>
+            <input name="dest" required>
           </div>
-        </form>
-      </div>
+          <div>
+            <label>عدد الأيام</label>
+            <select name="days" required>
+              <option>5–7</option>
+              <option>8–10</option>
+              <option>11–14</option>
+              <option>15+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>عدد البالغين</label>
+            <input type="number" name="adults" value="2">
+          </div>
+          <div>
+            <label>عدد الأطفال</label>
+            <input type="number" name="kids" value="0">
+          </div>
+        </div>
+
+        <label>ملاحظات</label>
+        <textarea name="notes"></textarea>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn" type="submit">إرسال على واتساب</button>
+          <button class="btn secondary" type="button" id="copyBtn">نسخ النص</button>
+        </div>
+
+      </form>
     </div>
 
     <footer class="footer">
@@ -98,6 +94,6 @@
   <span>تواصل واتساب</span>
 </a>
 
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
