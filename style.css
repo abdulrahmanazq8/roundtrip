@@ -11,9 +11,10 @@
   --shadow:0 10px 26px rgba(0,0,0,.12);
   --r:18px;
   
-  /* Responsive units */
-  --logo-height: clamp(44px, 6vw, 68px); /* مرن: 44px إلى 68px */
-  --banner-height: clamp(160px, 25vh, 240px); /* مرن: 160px إلى 240px */
+  /* Responsive units - UPDATED FOR BETTER PROPORTIONS */
+  --logo-height: clamp(44px, 6vw, 68px);
+  --banner-height-desktop: min(30vh, 280px); /* تحكم أفضل للبانر */
+  --banner-height-mobile: min(22vh, 200px);
 }
 
 /* ===== NAV (RESPONSIVE LOGO) ===== */
@@ -29,7 +30,6 @@
   gap:clamp(8px, 1.5vw, 12px);
 }
 
-/* LOGO RESPONSIVE - REMOVED !important */
 .logo-img{
   height: var(--logo-height);
   width: auto;
@@ -47,21 +47,34 @@
   padding:clamp(6px, 0.8vw, 8px) clamp(8px, 1vw, 10px);
   border-radius:12px;
 }
-
-/* ===== RESPONSIVE BANNER (FIXED) ===== */
-.hero-banner{
-  width:100%;
-  height: var(--banner-height); /* استخدام الوحدة المرنة */
-  overflow:hidden;
-  border-bottom:1px solid var(--line);
-  background:#fff;
-  position: relative;
+.nav-links a:hover{background:rgba(0,0,0,.05)}
+.nav-links a.active{
+  background:rgba(0,0,0,.08);
+  border:1px solid var(--line);
 }
-.hero-banner img{
-  width:100%;
-  height:100%; /* تأخذ 100% من الحاوية */
-  object-fit:cover;
-  display:block;
+
+/* ===== RESPONSIVE BANNER - COMPLETE FIX ===== */
+/* هيكلة جديدة تمنع التضارب */
+.hero-banner {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  position: relative;
+  /* استخدم متغيرات مختلفة للشاشات */
+}
+
+/* للشاشات الكبيرة */
+.hero-banner {
+  height: var(--banner-height-desktop);
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* التركيز على المركز */
+  display: block;
 }
 
 /* ===== HERO CONTENT - RESPONSIVE GRID ===== */
@@ -76,7 +89,7 @@
 /* MAIN TITLE RESPONSIVE */
 h1{
   margin:clamp(10px, 2vw, 14px) 0 clamp(8px, 1.5vw, 10px);
-  font-size:clamp(24px, 4vw, 44px); /* أصغر على الجوال */
+  font-size:clamp(24px, 4vw, 44px);
   line-height:1.2;
   font-weight:900;
 }
@@ -104,7 +117,7 @@ h1{
   font-size:clamp(12px, 1.2vw, 13px);
 }
 
-/* ===== RESPONSIVE BREAKPOINTS (بدون تعارض) ===== */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
 
 /* TABLET (768px - 900px) */
 @media (max-width: 900px) and (min-width: 768px) {
@@ -122,6 +135,15 @@ h1{
 
 /* MOBILE (under 768px) */
 @media (max-width: 768px) {
+  /* البانر للجوال - أولوية قصوى */
+  .hero-banner {
+    height: var(--banner-height-mobile) !important;
+  }
+  
+  .hero-banner img {
+    object-position: center 35% !important; /* تركيز أعلى للجوال */
+  }
+  
   /* Stack everything vertically */
   .hero-grid{
     grid-template-columns:1fr;
@@ -145,7 +167,7 @@ h1{
   
   /* Adjust navigation for mobile */
   .nav-links{
-    display:none; /* أو استبدال بقائمة هامبرغر */
+    display:none;
   }
   
   .nav-inner{
@@ -161,7 +183,6 @@ h1{
     font-size:14px;
   }
   
-  /* Services cards */
   .service{
     padding:14px;
   }
@@ -172,9 +193,16 @@ h1{
 
 /* SMALL MOBILE (under 480px) */
 @media (max-width: 480px) {
-  :root{
-    --logo-height: 40px;
-    --banner-height: 140px;
+  .logo-img{
+    height: 40px !important;
+  }
+  
+  .hero-banner {
+    height: min(20vh, 160px) !important;
+  }
+  
+  .hero-banner img {
+    object-position: center 40% !important;
   }
   
   .container{
@@ -203,47 +231,19 @@ h1{
   }
 }
 
-/* ===== REMOVE CONFLICTING RULES ===== */
-/* احذف هذه القواعد إذا كانت موجودة: */
-/* 
-.logo-img{ height:68px !important; }
-.hero-banner{ max-height:280px !important; }
-.hero-banner img{ height:280px !important; }
-*/
-
-
-/* ===== FIX CROPPED BANNER ===== */
-.hero-banner {
-  position: relative;
-  overflow: hidden;
-}
-
+/* ===== FORCE OVERRIDE CONFLICTS ===== */
+/* هذه القواعد ستتغلب على أي تضارب */
+.hero-banner,
 .hero-banner img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-  /* جرب هذه القيم لضبط التركيز */
-  object-position: center 25%; /* 25% من أعلى الصورة */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* إذا كانت الصورة أفقية (لاندسكيب) */
-@media (min-width: 768px) {
-  .hero-banner {
-    height: min(35vh, 400px); /* ارتفاع مرن */
-  }
-  
-  .hero-banner img {
-    object-position: center 20%;
-  }
-}
-
-/* للجوال: تقليل الارتفاع */
-@media (max-width: 767px) {
-  .hero-banner {
-    height: min(25vh, 250px);
-  }
-  
-  .hero-banner img {
-    object-position: center 30%;
-  }
+/* تأكيد أن الصورة تأخذ الحجم الكامل */
+.hero-banner img {
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
 }
