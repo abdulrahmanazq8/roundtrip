@@ -1,5 +1,4 @@
-/* ===== GLOBAL RESPONSIVE UNITS ===== */
-:root {
+:root{
   --brand1:#AFB598;
   --brand2:#D0CEBB;
   --brand-dark:#556859;
@@ -10,14 +9,25 @@
   --line:rgba(0,0,0,.10);
   --shadow:0 10px 26px rgba(0,0,0,.12);
   --r:18px;
-  
-  /* Responsive units - UPDATED FOR BETTER PROPORTIONS */
-  --logo-height: clamp(44px, 6vw, 68px);
-  --banner-height-desktop: min(30vh, 280px); /* تحكم أفضل للبانر */
-  --banner-height-mobile: min(22vh, 200px);
 }
 
-/* ===== NAV (RESPONSIVE LOGO) ===== */
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Tahoma, Arial, "Noto Kufi Arabic", sans-serif;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(175,181,152,.35), transparent 60%),
+    radial-gradient(1000px 700px at 90% 0%, rgba(208,206,187,.30), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin-inline:auto}
+
+/* ===== NAV ===== */
 .nav{
   position:sticky; top:0; z-index:10;
   background:rgba(246,246,242,.92);
@@ -26,224 +36,190 @@
 }
 .nav-inner{
   display:flex; align-items:center; justify-content:space-between;
-  padding:clamp(10px, 2vw, 14px) 0;
-  gap:clamp(8px, 1.5vw, 12px);
+  padding:14px 0; gap:12px;
 }
-
+.logo{display:flex; align-items:center; gap:10px}
 .logo-img{
-  height: var(--logo-height);
-  width: auto;
-  object-fit: contain;
+  height:62px;
+  width:auto;
+  object-fit:contain;
 }
 
-/* NAV LINKS RESPONSIVE */
 .nav-links{
-  display:flex; gap:clamp(8px, 1.5vw, 14px); flex-wrap:wrap;
-  font-weight:800; 
-  font-size:clamp(12px, 1.2vw, 14px);
+  display:flex; gap:14px; flex-wrap:wrap;
+  font-weight:800; font-size:14px;
   color:var(--brand-dark);
 }
-.nav-links a{
-  padding:clamp(6px, 0.8vw, 8px) clamp(8px, 1vw, 10px);
-  border-radius:12px;
-}
+.nav-links a{padding:8px 10px; border-radius:12px}
 .nav-links a:hover{background:rgba(0,0,0,.05)}
 .nav-links a.active{
   background:rgba(0,0,0,.08);
   border:1px solid var(--line);
 }
 
-/* ===== RESPONSIVE BANNER - COMPLETE FIX ===== */
-/* هيكلة جديدة تمنع التضارب */
-.hero-banner {
-  width: 100%;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-  background: #fff;
-  position: relative;
-  /* استخدم متغيرات مختلفة للشاشات */
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 13px; border-radius:14px;
+  background:linear-gradient(135deg,var(--brand1),var(--brand2));
+  color:#0b0f0d; font-weight:900;
+  border:0; cursor:pointer;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  white-space:nowrap;
+}
+.btn.secondary{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--brand-dark);
+  box-shadow:none;
 }
 
-/* للشاشات الكبيرة */
-.hero-banner {
-  height: var(--banner-height-desktop);
+/* ===== CARDS / SECTIONS ===== */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+}
+.section{padding:26px 0}
+.section h2{margin:0 0 10px; font-size:24px}
+.section p{margin:0; color:var(--muted)}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:14px; margin-top:14px;
+}
+.service{padding:16px}
+.service h3{margin:0 0 6px; font-size:16px}
+.service p{margin:0; font-size:14px; color:var(--muted)}
+
+/* ===== HERO BANNER - SIMPLE FIX ===== */
+.hero-banner{
+  width:100%;
+  height:220px; /* ارتفاع معتدل */
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 25%; /* ضبط التركيز على الجزء العلوي من الصورة */
+  display:block;
 }
 
-.hero-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center; /* التركيز على المركز */
-  display: block;
-}
-
-/* ===== HERO CONTENT - RESPONSIVE GRID ===== */
-.hero{padding:clamp(16px, 3vw, 20px) 0 clamp(8px, 2vw, 10px);}
-
+/* ===== HOME CONTENT HERO ===== */
+.hero{padding:20px 0 10px}
 .hero-grid{
   display:grid;
   grid-template-columns:1.25fr .75fr;
-  gap:clamp(14px, 2vw, 18px);
+  gap:18px;
 }
-
-/* MAIN TITLE RESPONSIVE */
+.hero-main{padding:22px}
+.kicker{
+  display:inline-block;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.03);
+  color:var(--brand-dark);
+  font-size:13px; font-weight:800;
+}
 h1{
-  margin:clamp(10px, 2vw, 14px) 0 clamp(8px, 1.5vw, 10px);
-  font-size:clamp(24px, 4vw, 44px);
+  margin:14px 0 10px;
+  font-size:clamp(28px, 3.2vw, 44px);
   line-height:1.2;
-  font-weight:900;
+  color:var(--brand-dark);
 }
-
 .lead{
   color:var(--muted);
-  margin:0 0 clamp(10px, 2vw, 14px);
-  font-size:clamp(14px, 1.6vw, 18px);
+  margin:0 0 14px;
+  font-size:18px;
 }
-
-/* BULLETS RESPONSIVE */
 .bullets{
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:clamp(8px, 1.5vw, 10px);
-  margin-top:clamp(10px, 2vw, 12px);
+  gap:10px;
+  margin-top:12px;
 }
 .bullet{
-  padding:clamp(10px, 1.5vw, 12px);
+  padding:12px;
   border:1px solid var(--line);
   border-radius:16px;
   background:rgba(0,0,0,.03);
   color:var(--brand-dark);
   font-weight:800;
-  font-size:clamp(12px, 1.2vw, 13px);
+  font-size:13px;
+}
+.stat{
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(0,0,0,.03);
+}
+.stat strong{display:block; font-size:18px}
+.stat span{display:block; color:var(--muted); font-weight:800; font-size:13px}
+
+/* ===== FOOTER ===== */
+.footer{
+  padding:20px 0 40px;
+  border-top:1px solid var(--line);
+  margin-top:26px;
+  color:var(--muted);
+  font-weight:800; font-size:13px;
 }
 
-/* ===== RESPONSIVE BREAKPOINTS ===== */
-
-/* TABLET (768px - 900px) */
-@media (max-width: 900px) and (min-width: 768px) {
-  .hero-grid{
-    grid-template-columns:1fr;
-  }
-  .bullets{
-    grid-template-columns:repeat(2, 1fr);
-  }
-  .grid3{
-    grid-template-columns:repeat(2, 1fr);
-    gap:12px;
-  }
+/* ===== WHATSAPP FLOAT ===== */
+.wa{
+  position:fixed; bottom:16px; left:16px;
+  display:flex; align-items:center; gap:10px;
+  background:#fff;
+  border:1px solid var(--line);
+  padding:12px 14px; border-radius:999px;
+  box-shadow:var(--shadow);
+}
+.wa-dot{
+  width:10px; height:10px; border-radius:50%;
+  background:var(--brand1);
+  box-shadow:0 0 0 6px rgba(175,181,152,.35);
 }
 
-/* MOBILE (under 768px) */
-@media (max-width: 768px) {
-  /* البانر للجوال - أولوية قصوى */
-  .hero-banner {
-    height: var(--banner-height-mobile) !important;
-  }
-  
-  .hero-banner img {
-    object-position: center 35% !important; /* تركيز أعلى للجوال */
-  }
-  
-  /* Stack everything vertically */
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-  
-  .bullets{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-  
-  .grid3{
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-  
-  .row{
-    grid-template-columns:1fr;
-    gap:12px;
-  }
-  
-  /* Adjust navigation for mobile */
-  .nav-links{
-    display:none;
-  }
-  
-  .nav-inner{
-    justify-content:center;
-  }
-  
-  /* WhatsApp button */
-  .wa{
-    left:12px;
-    right:12px;
-    justify-content:center;
-    padding:10px 12px;
-    font-size:14px;
-  }
-  
-  .service{
-    padding:14px;
-  }
-  .service h3{
-    font-size:16px;
-  }
+/* ===== FORM ===== */
+label{display:block; margin:10px 0 6px; font-weight:900; color:var(--brand-dark)}
+input, select, textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 12px;
+  font:inherit;
+  background:#fff;
+}
+textarea{min-height:120px; resize:vertical}
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
-/* SMALL MOBILE (under 480px) */
-@media (max-width: 480px) {
-  .logo-img{
-    height: 40px !important;
+/* ===== RESPONSIVE ===== */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .bullets{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  
+  /* تعديل البانر للجوال */
+  .hero-banner{
+    height:180px;
+  }
+  .hero-banner img{
+    object-position:center 30%;
   }
   
-  .hero-banner {
-    height: min(20vh, 160px) !important;
-  }
-  
-  .hero-banner img {
-    object-position: center 40% !important;
-  }
-  
-  .container{
-    width:94%;
-  }
-  
-  h1{
-    font-size:22px;
-    text-align:center;
-  }
-  
-  .lead{
-    font-size:14px;
-    text-align:center;
-  }
-  
-  .hero-main{
-    padding:16px;
-  }
-  
-  .kicker{
-    font-size:12px;
-    display:block;
-    text-align:center;
-    margin-bottom:10px;
-  }
-}
-
-/* ===== FORCE OVERRIDE CONFLICTS ===== */
-/* هذه القواعد ستتغلب على أي تضارب */
-.hero-banner,
-.hero-banner img {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* تأكيد أن الصورة تأخذ الحجم الكامل */
-.hero-banner img {
-  max-width: none !important;
-  max-height: none !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
+  .wa{left:12px; right:12px; justify-content:center}
 }
