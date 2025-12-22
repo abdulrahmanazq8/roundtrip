@@ -214,3 +214,20 @@ textarea{min-height:120px; resize:vertical}
     object-fit:cover;
   }
 }
+/* ===== Desktop adjustments ===== */
+.logo-img{
+  height:62px;
+  width:auto;
+  object-fit:contain;
+}
+
+.hero-banner{
+  max-height:300px;
+}
+
+.hero-banner img{
+  height:300px;
+  width:100%;
+  object-fit:cover;
+  display:block;
+}
