@@ -210,3 +210,40 @@ h1{
 .hero-banner{ max-height:280px !important; }
 .hero-banner img{ height:280px !important; }
 */
+
+
+/* ===== FIX CROPPED BANNER ===== */
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  /* جرب هذه القيم لضبط التركيز */
+  object-position: center 25%; /* 25% من أعلى الصورة */
+}
+
+/* إذا كانت الصورة أفقية (لاندسكيب) */
+@media (min-width: 768px) {
+  .hero-banner {
+    height: min(35vh, 400px); /* ارتفاع مرن */
+  }
+  
+  .hero-banner img {
+    object-position: center 20%;
+  }
+}
+
+/* للجوال: تقليل الارتفاع */
+@media (max-width: 767px) {
+  .hero-banner {
+    height: min(25vh, 250px);
+  }
+  
+  .hero-banner img {
+    object-position: center 30%;
+  }
+}
