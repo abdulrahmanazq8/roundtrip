@@ -1,15 +1,5 @@
-// ===============================
-// إعدادات عامة
-// ===============================
+const WHATSAPP_NUMBER = "96500000000"; // حط رقمك الدولي بدون +
 
-// حط رقم الواتساب بصيغة دولية بدون +
-// مثال الكويت: 96565750302
-const WHATSAPP_NUMBER = "96565750302";
-
-
-// ===============================
-// تفعيل رابط واتساب العائم
-// ===============================
 function initWhatsApp(){
   const waLink = document.getElementById("waLink");
   if (waLink){
@@ -17,9 +7,6 @@ function initWhatsApp(){
   }
 }
 
-// ===============================
-// تفعيل السنة بالفوتر
-// ===============================
 function initYear(){
   const y = document.getElementById("year");
   if (y){
@@ -27,9 +14,6 @@ function initYear(){
   }
 }
 
-// ===============================
-// تفعيل الـ Active بالمينيو
-// ===============================
 function setActiveNav(){
   const page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   document.querySelectorAll("[data-nav]").forEach(link=>{
@@ -40,9 +24,6 @@ function setActiveNav(){
   });
 }
 
-// ===============================
-// نموذج طلب الرحلة (إن وُجد)
-// ===============================
 function initTripForm(){
   const form = document.getElementById("tripForm");
   const copyBtn = document.getElementById("copyBtn");
@@ -88,9 +69,6 @@ function initTripForm(){
   }
 }
 
-// ===============================
-// تشغيل كل شي
-// ===============================
 document.addEventListener("DOMContentLoaded", ()=>{
   initWhatsApp();
   initYear();
