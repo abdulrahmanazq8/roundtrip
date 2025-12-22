@@ -1,107 +1,117 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Round Trip | الرئيسية</title>
-  <meta name="description" content="تنظيم رحلات، تخطيط برامج سفر، حجوزات فنادق وطيران للعوائل.">
-  <link rel="stylesheet" href="style.css?v=2">
-</head>
-<body>
+:root{
+  --brand1:#AFB598;
+  --brand2:#D0CEBB;
+  --brand-dark:#556859;
 
-<!-- ===== NAV ===== -->
-<header class="nav">
-  <div class="container nav-inner">
-    <div class="logo">
-      <div class="mark"></div>
-      <div>
-        <div style="font-size:14px;color:var(--muted);font-weight:800;">Round Trip</div>
-        <div style="font-size:16px;font-weight:900;">وكالة سفر</div>
-      </div>
-    </div>
+  --bg:#F6F6F2;
+  --card:#FFFFFF;
+  --text:#0b0f0d;
+  --muted:#556859;
+  --line:rgba(0,0,0,.10);
+  --shadow:0 10px 26px rgba(0,0,0,.12);
+  --r:18px;
+}
 
-    <nav class="nav-links">
-      <a data-nav href="index.html">الرئيسية</a>
-      <a data-nav href="services.html">الخدمات</a>
-      <a data-nav href="packages.html">الباقات</a>
-      <a data-nav href="contact.html">التواصل</a>
-    </nav>
+*{box-sizing:border-box}
 
-    <a class="btn" href="contact.html">اطلب رحلتك</a>
-  </div>
-</header>
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Tahoma, Arial, "Noto Kufi Arabic", sans-serif;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(175,181,152,.35), transparent 60%),
+    radial-gradient(1000px 700px at 90% 0%, rgba(208,206,187,.30), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
 
-<!-- ===== HERO ===== -->
-<main class="container">
-  <section class="hero">
-    <div class="hero-grid">
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin-inline:auto}
 
-      <div class="card hero-main">
-        <div class="kicker">✈️ تخطيط رحلات • فنادق • طيران • سيارات</div>
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:10;
+  background:rgba(246,246,242,.9);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;gap:12px;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.mark{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand1),var(--brand2));
+}
+.nav-links{
+  display:flex;gap:14px;font-weight:700;font-size:14px;
+}
+.nav-links a{padding:8px 10px;border-radius:12px}
+.nav-links a:hover{background:rgba(0,0,0,.05)}
+.nav-links a.active{
+  background:rgba(0,0,0,.08);
+  border:1px solid var(--line);
+}
 
-        <h1>رحلتك تنبني صح… من أول يوم.</h1>
+/* BUTTONS */
+.btn{
+  padding:11px 14px;border-radius:14px;
+  background:linear-gradient(135deg,var(--brand1),var(--brand2));
+  color:#0b0f0d;font-weight:800;border:0;cursor:pointer;
+}
+.btn.secondary{
+  background:transparent;border:1px solid var(--line);
+  color:var(--brand-dark);
+}
 
-        <p class="lead">
-          نرتّب لك رحلة مريحة وواضحة، مناسبة للعائلة، بدون صداع التخطيط.
-        </p>
+/* CARDS */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+}
 
-        <div class="cta">
-          <a class="btn" href="contact.html">ابدأ طلب الرحلة</a>
-          <a class="btn secondary" href="packages.html">شوف الباقات</a>
-        </div>
+/* HERO */
+.hero{padding:44px 0 18px}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:18px;
+}
+.hero-main{padding:26px}
+.kicker{
+  display:inline-block;
+  padding:7px 10px;border-radius:999px;
+  border:1px solid var(--line);
+  font-size:13px;font-weight:700;
+}
+.lead{color:var(--muted)}
+.bullets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bullet{
+  padding:12px;border:1px solid var(--line);
+  border-radius:16px;background:#f1f1ee;
+}
 
-        <div class="bullets">
-          <div class="bullet">✅ برنامج يومي مرتب</div>
-          <div class="bullet">✅ يوم الوصول خفيف</div>
-          <div class="bullet">✅ دعم قبل وأثناء السفر</div>
-        </div>
-      </div>
+/* SECTIONS */
+.section{padding:26px 0}
+.section h2{margin:0 0 10px}
+.section p{color:var(--muted)}
 
-      <aside class="card hero-side">
-        <div class="stat">
-          <strong>تخطيط كامل</strong>
-          <span>من الوصول إلى العودة</span>
-        </div>
-        <div class="stat">
-          <strong>خيارات مرنة</strong>
-          <span>حسب الميزانية</span>
-        </div>
-        <div class="stat">
-          <strong>مناسب للعائلة</strong>
-          <span>راحة + وقت أقل تنقل</span>
-        </div>
-      </aside>
+/* FOOTER */
+.footer{
+  margin-top:26px;padding:20px 0;
+  border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted);
+}
 
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section class="section">
-    <h2>ليش Round Trip؟</h2>
-    <p>
-      لأننا نشتغل بعقل المسافر، نخفف التنقلات، نختار فنادق بمواقع ممتازة،
-      ونبني برنامج واقعي مو متعب.
-    </p>
-
-    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-      <a class="btn secondary" href="services.html">تفاصيل الخدمات</a>
-      <a class="btn secondary" href="packages.html">الباقات</a>
-      <a class="btn" href="contact.html">تواصل معنا</a>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    © <span id="year"></span> Round Trip. جميع الحقوق محفوظة.
-  </footer>
-</main>
-
-<!-- ===== WHATSAPP ===== -->
-<a class="wa" id="waLink" href="#" target="_blank">
-  <span class="wa-dot"></span>
-  <span>تواصل واتساب</span>
-</a>
-
-<script src="script.js?v=2"></script>
-</body>
-</html>
+/* WHATSAPP */
+.wa{
+  position:fixed;bottom:16px;left:16px;
+  background:#fff;border:1px solid var(--line);
+  padding:12px 14px;border-radius:999px;
+}
+.wa-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--brand1);
+}
