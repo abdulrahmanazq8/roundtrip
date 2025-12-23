@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "96500000000"; // حط رقمك الدولي بدون +
+const WHATSAPP_NUMBER = "96565750302"; // حط رقمك الدولي بدون +
 
 function initWhatsApp(){
   const waLink = document.getElementById("waLink");
